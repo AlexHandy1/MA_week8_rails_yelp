@@ -22,12 +22,22 @@ module API
         Restaurant.create(name: params[:name], description: params[:description])
       end
 
+      desc "Update restaurant details"
+
+      put ':restaurant_id' do
+        Restaurant.find(params[:restaurant_id]).update({
+          name: params[:name]
+          })
+      end
+
       desc "Show restaurant reviews"
 
       get '/:restaurant_id/reviews' do
         @restaurant = Restaurant.find(params[:restaurant_id])
         @restaurant.reviews
       end
+
+
     end
   end
 end
