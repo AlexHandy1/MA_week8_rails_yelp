@@ -8,7 +8,6 @@ class RestaurantsController < ApplicationController
 
   def new
     @restaurant = Restaurant.new
-
   end
 
   def create
@@ -22,6 +21,7 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    puts @restaurant.image.url
   end
 
   def edit
